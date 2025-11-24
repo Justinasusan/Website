@@ -1,0 +1,144 @@
+Here’s your full HTML code so you can host it online anywhere and share the link:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Bunny Love</title>
+  <style>
+    :root {
+      --bg: #fff9fb;
+      --accent: #ffc1cc;
+      --accent2: #a5c9f3;
+      --text: #5a4e4d;
+      --card: #ffffff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      text-align: center;
+      padding: 20px;
+    }
+    header {
+      padding: 20px 0;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+    }
+    header p {
+      font-size: 1.2rem;
+      color: var(--accent2);
+    }
+    .bunny-img {
+      margin: 20px auto;
+      max-width: 200px;
+    }
+    .card {
+      background: var(--card);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+    .hearts {
+      font-size: 2rem;
+      color: var(--accent);
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: var(--accent2);
+    }
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      border-radius: 10px;
+      border: 1px solid var(--accent2);
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐇 Chu ❤ Stu 🐇</h1>
+    <p>Our Little Bunny World</p>
+  </header>
+
+  <img class="bunny-img" src="https://i.imgur.com/6QKQJYp.png" alt="Cute Bunny" />
+
+  <div class="card">
+    <h2>💕 How We Met</h2>
+    <p>It all started with a smile, and now we hop together through life like two happy bunnies!</p>
+  </div>
+
+  <div class="card">
+    <h2>🌸 Our Special Days</h2>
+    <p>From our first date to our late-night talks — every moment is magical.</p>
+  </div>
+
+  <div class="card">
+    <h2>📝 Special Memory</h2>
+    <label for="memoryInput">Write a special moment you want to remember:</label>
+    <textarea id="memoryInput" placeholder="Type your memory here..."></textarea>
+    <br>
+    <button onclick="saveMemory()">Save Memory</button>
+    <div id="memoryList"></div>
+  </div>
+
+  <div class="hearts">❤ ❤ ❤</div>
+
+  <footer>
+    Made with love and fluff 🐇
+  </footer>
+
+  <script>
+    function saveMemory() {
+      const input = document.getElementById('memoryInput');
+      const memories = JSON.parse(localStorage.getItem('memories') || '[]');
+      if (input.value.trim() !== '') {
+        memories.push(input.value.trim());
+        localStorage.setItem('memories', JSON.stringify(memories));
+        input.value = '';
+        displayMemories();
+      }
+    }
+
+    function displayMemories() {
+      const list = document.getElementById('memoryList');
+      const memories = JSON.parse(localStorage.getItem('memories') || '[]');
+      list.innerHTML = '<h3>Saved Memories:</h3>' + memories.map(m => `<p>💖 ${m}</p>`).join('');
+    }
+
+    displayMemories();
+  </script>
+</body>
+</html>
+```
+
+You can now upload this exact file to **GitHub Pages, Netlify, or Vercel** and share the link — anyone will be able to open it.
